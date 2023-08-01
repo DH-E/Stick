@@ -16,10 +16,14 @@ public class SelectRole : MonoBehaviour
 
     private void Awake()
     {
-        _roleListContent = transform.Find("RoleList/Viewport/Content").gameObject;
+        //查找content对象
+        //_roleListContent = transform.Find("RoleList/Viewport/Content").gameObject;
+
+        _roleListContent = gameObject.FindGameObject("RoleList/Viewport/Content");
 
         _roleListToggleGroup = _roleListContent.GetComponent<ToggleGroup>();
-        _btnSelect = transform.Find("BtnSelect").GetComponent<Button>();
+        //_btnSelect = transform.Find("BtnSelect").GetComponent<Button>();
+        _btnSelect = gameObject.FindComponent<Button>("BtnSelect");
         _btnSelect.onClick.AddListener(OnBtnSelectClick);
 
         //角色索引的初始值
@@ -27,7 +31,7 @@ public class SelectRole : MonoBehaviour
 
         foreach (var roleInfo in UserData.Instance.AllRole)
         {
-            var roleItem = Instantiate(Resources.Load<GameObject>("Prefb/UI/SelectRole/Role"));
+            var roleItem = Instantiate(Resources.Load<GameObject>("Prefab/UI/SelectRole/Role"));
             roleItem.transform.SetParent(_roleListContent.transform);
             var textName = roleItem.transform.Find("Label").GetComponent<Text>();
             var toggle = roleItem.GetComponent<Toggle>();

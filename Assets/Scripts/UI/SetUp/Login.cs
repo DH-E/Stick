@@ -13,9 +13,14 @@ public class Login : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _InputAccount = transform.Find("InputAccont").GetComponent<InputField>();
-        _InputPassword = transform.Find("InputPassWord").GetComponent<InputField>();
-        _LoginButton = transform.Find("Login").GetComponent<Button>();
+        //_InputAccount = transform.Find("InputAccont").GetComponent<InputField>();
+        //_InputPassword = transform.Find("InputPassWord").GetComponent<InputField>();
+        //_LoginButton = transform.Find("Login").GetComponent<Button>();
+
+        _InputAccount = gameObject.FindComponent<InputField>("InputAccont");
+        _InputPassword = gameObject.FindComponent<InputField>("InputPassWord");
+        _LoginButton = gameObject.FindComponent<Button>("Login");
+
 
         _LoginButton.onClick.AddListener(ButtonLogin);
     }
@@ -27,7 +32,7 @@ public class Login : MonoBehaviour
         //暂时用假数据，直接进入选人界面
         SceneManager.LoadScene("SelectRole");
 
-        
+
 
     }
 

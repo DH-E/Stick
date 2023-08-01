@@ -36,9 +36,9 @@ public class UserData
     
     public UserData()
     {
-        AllRole.Add(new SelectRoleInfo { playerName = "老一", roleModlePath = "空" });
-        AllRole.Add(new SelectRoleInfo { playerName = "大二", roleModlePath = "空" });
-        AllRole.Add(new SelectRoleInfo { playerName = "三哥", roleModlePath = "空" });
+        AllRole.Add(new SelectRoleInfo { playerName = "老一", roleModlePath = "Prefab/Role/BlackKnight" });
+        AllRole.Add(new SelectRoleInfo { playerName = "大二", roleModlePath = "Prefab/Role/BlackKnight" });
+        AllRole.Add(new SelectRoleInfo { playerName = "三哥", roleModlePath = "Prefab/Role/BlackKnight" });
     }
 }
 

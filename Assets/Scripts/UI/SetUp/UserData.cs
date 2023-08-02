@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static UnityEditor.Progress;
+using UnityEngine;
+
+
+[Serializable]
+public class AllRoles
+{
+    public List<SelectRoleInfo> roleInfo;
+}
+
 
 [System.Serializable]
 public class SelectRoleInfo
 {
-    public string playerName;
-    public string roleModlePath;
+    public int id;
+    public string roleName;
+    public string modelPath;
 }
 
 
@@ -31,14 +42,23 @@ public class UserData
     }
     #endregion
     
+    public Dictionary<int, SelectRoleInfo> _cache = new Dictionary<int, SelectRoleInfo>();
 
-    public List<SelectRoleInfo> AllRole = new List<SelectRoleInfo>();
+    public void Init()
+    {
+        string roleInfo = Resources.Load<TextAsset>("Json/RoleModelJson").text;
+        AllRoles items = JsonUtility.FromJson<AllRoles>(roleInfo);
+
+
+        for (int i = 0; i < items.roleInfo.Count; i++)
+        {
+            _cache.Add(items.roleInfo[i].id, items.roleInfo[i]);
+        }
+    }
     
     public UserData()
     {
-        AllRole.Add(new SelectRoleInfo { playerName = "老一", roleModlePath = "Prefab/Role/BlackKnight" });
-        AllRole.Add(new SelectRoleInfo { playerName = "大二", roleModlePath = "Prefab/Role/BlackKnight" });
-        AllRole.Add(new SelectRoleInfo { playerName = "三哥", roleModlePath = "Prefab/Role/BlackKnight" });
+       Init();
     }
 }
 

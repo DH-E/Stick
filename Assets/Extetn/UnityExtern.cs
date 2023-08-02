@@ -33,5 +33,18 @@ public static class UnityExtern
         return parent.transform.Find(path).gameObject;
 
     }
+
+    /// <summary>
+    /// 删除父节点的所有子对象
+    /// </summary>
+    /// <param name="parent"></param>
+    public static void DestoryAllChildren(this GameObject parent)
+    {
+        for (int i = 0; i < parent.transform.childCount; i++)
+        {
+            var child = parent.transform.GetChild(i);
+            GameObject.Destroy(child.gameObject);
+        }
+    }
 }
 

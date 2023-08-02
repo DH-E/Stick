@@ -1,0 +1,18 @@
+{
+	"roleInfo": [{
+			"id": 1,
+			"roleName": "BlackKnight",
+			"modelPath": "Prefab/Role/BlackKnight"
+		},
+		{
+			"id": 2,
+			"roleName": "ShovelKnight",
+			"modelPath": "Prefab/Role/ShovelKnight"
+		},
+		{
+			"id": 3,
+			"roleName": "SpecterKnight",
+			"modelPath": "Prefab/Role/SpecterKnight"
+		}
+	]
+}
